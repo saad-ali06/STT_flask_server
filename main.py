@@ -80,6 +80,7 @@ def transcribe():
         
         try:
             transcription = split_audio_to_chunks(file_path, output_dir)
+            # os.remove(file_path)
             return jsonify({"transcription": transcription}), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
